@@ -1,0 +1,14 @@
+<?php
+class BD
+{
+    private static $instancia = null;
+    public static function crearInstancia()
+    {
+        if (!isset(self::$instancia)) {
+            $opcionPDO[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+            self::$instancia = new PDO('mysql:host=localhost;dbname=empleados', 'root', 'root', $opcionPDO);
+            
+        }
+        return self::$instancia;
+    }
+}
